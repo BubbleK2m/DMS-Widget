@@ -1,0 +1,11 @@
+﻿<Application x:Class="DomitoryWidget.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DomitoryWidget"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="DSMBlue" Color="#3593D3"/>
+        <SolidColorBrush x:Key="DSMYellow" Color="#FFBC47"/>
+        <SolidColorBrush x:Key="DSMRed" Color="#F66351"/>
+    </Application.Resources>
+</Application>

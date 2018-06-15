@@ -1,0 +1,253 @@
+﻿<Page x:Class="DomitoryWidget.View.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DomitoryWidget.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="560" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="/Font/#NanumSquare"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontFamily" Value="/Font/#NanumSquare"/>
+        </Style>
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Background="White"/>
+        <Border Grid.Column="0" Background="#3593d3"/>
+
+        <StackPanel Grid.Column="0" 
+                    Margin="0 48">
+
+            <StackPanel Margin="32 24">
+                <Label Grid.Column="1" Content="2018년 6월 12일 금요일" 
+                       Margin="0 0 0 0"
+                       Foreground="White" FontSize="15"
+                       HorizontalAlignment="Center"/>
+
+                <Grid Height="360">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Grid.Column="0"
+                            Width="48" Height="48"
+                            Margin="0 8 0 0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            BorderBrush="White"
+                            BorderThickness="2"
+                            CornerRadius="48"/>
+
+                    <StackPanel Grid.Row="0" Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <Label Content="Breakfast" Padding="16 8"
+                               FontSize="16" Foreground="White"/>
+
+                        <TextBlock Padding="16 4"
+                                   Foreground="White"
+                                   FontSize="14"
+                                   FontFamily="/Font/#NanumSquare"
+                                   TextWrapping="WrapWithOverflow">
+                        
+                            급식이 없습니다.
+                        </TextBlock>
+                    </StackPanel>
+
+                    <Border Grid.Row="1" Grid.Column="0"
+                            Width="48" Height="48"
+                            Margin="0 8 0 0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            BorderBrush="White"
+                            BorderThickness="2"
+                            CornerRadius="48"/>
+
+                    <StackPanel Grid.Row="1" Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <Label Content="Lunch" Padding="16 8"
+                               FontSize="16" Foreground="White"/>
+                        
+                        <TextBlock VerticalAlignment="Center"
+                               Padding="16 8"
+                               Foreground="White"
+                               FontSize="14"
+                               FontFamily="/Font/#NanumSquare"
+                               TextWrapping="WrapWithOverflow">
+                        
+                            소고기콩나물밥,
+                            양념장,
+                            건새우달걀탕,
+                            치즈바게트구이,
+                            복숭아아이스티,
+                            열무김치
+                        </TextBlock>
+                    </StackPanel>
+
+                    <Border Grid.Row="2" Grid.Column="0"
+                            Width="48" Height="48"
+                            Margin="0 8 0 0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            BorderBrush="White"
+                            BorderThickness="2"
+                            CornerRadius="48"/>
+
+                    <StackPanel Grid.Row="2" Grid.Column="1"
+                                VerticalAlignment="Center">
+                        <Label Content="Dinner" Padding="16 8"
+                               FontSize="16" Foreground="White"/>
+
+                        <TextBlock VerticalAlignment="Center"
+                                   Padding="16 8"
+                                   Foreground="White"
+                                   FontSize="14"
+                                   FontFamily="/Font/#NanumSquare"
+                                   TextWrapping="WrapWithOverflow">
+                            
+                            급식이 없습니다.
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+        <ScrollViewer Grid.Column="1"
+                      HorizontalScrollBarVisibility="Hidden">
+            <Border Background="#222">
+                <StackPanel Orientation="Vertical"
+                            Margin="32 48 0 48">
+
+                    <Border Background="Transparent"
+                            BorderBrush="White"
+                            BorderThickness="1">
+                        
+                        <StackPanel>
+                            <Label DataContext=""
+                                   Content="연장학습 신청" 
+                                   Margin="16"
+                                   Foreground="White" 
+                                   FontSize="20"/>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="28 0 28 16"
+                                        HorizontalAlignment="Right">
+
+                                <StackPanel Margin="0 0 16 0">
+                                    <Label Content="11시" 
+                                           HorizontalAlignment="Right"
+                                           Foreground="White" FontSize="16"/>
+
+                                    <Label Content="3층 독서실"
+                                           HorizontalAlignment="Right"
+                                           Foreground="White" FontSize="14"/>
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <Label Content="12시" 
+                                           HorizontalAlignment="Right"
+                                           Foreground="White" FontSize="16"/>
+
+                                    <Label Content="3층 독서실"
+                                           HorizontalAlignment="Right"
+                                           Foreground="White" FontSize="14"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Button Content="연장학습 신청하기" 
+                                    Margin="24 0 24 16" Padding="16 12"
+                                    Background="Transparent"
+                                    BorderBrush="White"
+                                    BorderThickness="1"
+                                    Foreground="White" FontSize="13"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Background="Transparent" Margin="0 24"
+                            BorderBrush="White"
+                            BorderThickness="1">
+
+                        <StackPanel>
+                            <Label Content="주말잔류 신청" Margin="16"
+                                   Foreground="White" FontSize="20"/>
+
+                            <Label Content="토요귀가" Margin="28 0 28 16"
+                                   HorizontalAlignment="Right"
+                                   Foreground="White" FontSize="18"/>
+
+                            <Button Content="주말잔류 신청하기" 
+                                    Margin="24 0 24 16" Padding="16 12"
+                                    Background="Transparent"
+                                    BorderBrush="White"
+                                    BorderThickness="1"
+                                    Foreground="White" FontSize="13"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Background="Transparent"
+                            BorderBrush="White"
+                            BorderThickness="1">
+
+                        <StackPanel>
+                            <Label Content="주말외출 신청" Margin="16"
+                                   Foreground="White" FontSize="20"/>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="28 0 28 16"
+                                        HorizontalAlignment="Right">
+
+                                <StackPanel Margin="0 0 16 0">
+                                    <Label Content="토요일"
+                                           HorizontalAlignment="Right"
+                                           Foreground="White" FontSize="16"/>
+
+                                    <Label Content="신청" 
+                                           HorizontalAlignment="Right"
+                                           Foreground="White" FontSize="14"/>
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <Label Content="일요일"
+                                           HorizontalAlignment="Right"
+                                           Foreground="White" FontSize="16"/>
+
+                                    <Label Content="미신청"
+                                           HorizontalAlignment="Right"
+                                           Foreground="White" FontSize="14"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Button Content="주말외출 신청하기" 
+                                    Margin="24 0 24 16" Padding="16 12"
+                                    Background="Transparent"
+                                    BorderBrush="White"
+                                    BorderThickness="1"
+                                    Foreground="White" FontSize="13"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            
+        </ScrollViewer>
+    </Grid>
+</Page>
