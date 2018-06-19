@@ -1,4 +1,5 @@
 ﻿<Page x:Class="DomitoryWidget.View.MainPage"
+      x:Name="mainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -225,6 +226,10 @@
                                     <Label Content="토요일"
                                            HorizontalAlignment="Right"
                                            Foreground="White" FontSize="16"/>
+
+                                    <Label Content="미신청"
+                                           HorizontalAlignment="Right"
+                                           Foreground="White" FontSize="14"/>
                                 </StackPanel>
 
                                 <StackPanel>
