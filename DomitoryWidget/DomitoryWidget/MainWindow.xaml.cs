@@ -33,7 +33,7 @@ namespace DomitoryWidget
             Left = area.Right - Width - 64;
             Top = area.Bottom - Height - 32;
 
-            NavigatePage(new MainPage());
+            NavigatePage(new LoginPage());
         }
 
         public void NavigatePage(Page page)

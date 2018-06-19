@@ -24,56 +24,59 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0"
-                Grid.RowSpan="2"
-                Background="#222" />
+        <Border Grid.Row="0" Grid.RowSpan="2" Background="#222" />
+        <Border Grid.Row="0" Background="#3593d3"/>
 
-        <Border Grid.Row="0"
-                Background="#3593d3"/>
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="32">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontFamily" Value="{StaticResource NanumSquare}"/>
+                </Style>
+            </StackPanel.Resources>
 
-        <StackPanel Grid.Row="1"
-                    Orientation="Vertical"
-                    Margin="32">
+            <Label Content="Sign in DMS" Padding="0" FontSize="24"/>
             
-            <Label Content="Sign in DMS"
-                   Padding="0"
-                   Foreground="White"
-                   FontSize="24"/> 
-
             <StackPanel Orientation="Vertical"
                         Margin="8 16">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="White"/>
+                        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontFamily" Value="{StaticResource NanumSquare}"/>
+                    </Style>
 
-                <Label Content="ID" 
-                       Padding="0" Margin="0 24 0 0"
-                       Foreground="White"/>
-                
-                <TextBox Padding="8 16"
-                         Background="Transparent"
-                         BorderBrush="White"
-                         BorderThickness="0 0 0 1" />
-                
-                <Label Content="Password" 
-                       Padding="0" Margin="0 24 0 0"
-                       Foreground="White"/>
-                
-                <PasswordBox Padding="8 16" 
-                             Background="Transparent"
-                             BorderBrush="White"
-                             BorderThickness="0 0 0 1"/>
-                
+                    <Style TargetType="PasswordBox">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="White"/>
+                        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontFamily" Value="{StaticResource NanumSquare}"/>
+                    </Style>
+
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="White"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontFamily" Value="{StaticResource NanumSquare}"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <Label Content="ID" Padding="0" Margin="0 24 0 0"/>
+                <TextBox Padding="8 16" />
+
+                <Label Content="Password" Padding="0" Margin="0 24 0 0"/>
+                <PasswordBox Padding="8 16" />
+
                 <Button x:Name="LoginButton" Content="Sign in"
                         Margin="0 32 0 0" Padding="16"
-                        Background="Transparent" 
-                        Foreground="White"
-                        BorderBrush="White"
                         Click="LoginButton_Click"/>
 
-                
                 <Button x:Name="RegisterButton" Content="Sign up"
                         Margin="0 16 0 0" Padding="16"
-                        Background="Transparent" 
-                        Foreground="White"
-                        BorderBrush="White"
                         Click="RegisterButton_Click"/>
             </StackPanel>
         </StackPanel>

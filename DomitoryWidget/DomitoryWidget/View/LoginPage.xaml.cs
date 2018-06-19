@@ -20,12 +20,11 @@ namespace DomitoryWidget.View
     /// </summary>
     public partial class LoginPage : Page
     {
-        private MainWindow mainWindow;
+        private MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
 
         public LoginPage()
         {
             InitializeComponent();
-            mainWindow = Application.Current.MainWindow as MainWindow;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -35,7 +34,8 @@ namespace DomitoryWidget.View
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.NavigatePage(new RegisterPage());
+            // mainWindow.NavigatePage(new RegisterPage());
         }
     }
 }
+
