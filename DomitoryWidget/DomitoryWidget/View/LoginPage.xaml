@@ -5,9 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DomitoryWidget.View"
       mc:Ignorable="d" 
-      d:DesignHeight="640" d:DesignWidth="360"
+      d:DesignHeight="640" d:DesignWidth="800"
       Title="LoginPage">
 
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource NanumSquare}"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource NanumSquare}"/>
+        </Style>
+    </Page.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="100" MaxHeight="100" />
@@ -19,8 +29,7 @@
                 Background="#222" />
 
         <Border Grid.Row="0"
-                BorderBrush="LightGray"
-                BorderThickness="0 0 0 1" />
+                Background="#3593d3"/>
 
         <StackPanel Grid.Row="1"
                     Orientation="Vertical"
@@ -28,37 +37,43 @@
             
             <Label Content="Sign in DMS"
                    Padding="0"
+                   Foreground="White"
                    FontSize="24"/> 
 
             <StackPanel Orientation="Vertical"
-                        Margin="8 ">
+                        Margin="8 16">
 
-                <Label Content="ID" Padding="0" Margin="0 24 0 0"/>
+                <Label Content="ID" 
+                       Padding="0" Margin="0 24 0 0"
+                       Foreground="White"/>
+                
                 <TextBox Padding="8 16"
-                         BorderBrush="LightGray"
-                         BorderThickness="0 0 0 1"/>
+                         Background="Transparent"
+                         BorderBrush="White"
+                         BorderThickness="0 0 0 1" />
                 
                 <Label Content="Password" 
                        Padding="0" Margin="0 24 0 0"
-                       Foreground="Gray"/>
+                       Foreground="White"/>
                 
                 <PasswordBox Padding="8 16" 
                              Background="Transparent"
-                             BorderBrush="Gray"
+                             BorderBrush="White"
                              BorderThickness="0 0 0 1"/>
                 
                 <Button x:Name="LoginButton" Content="Sign in"
                         Margin="0 32 0 0" Padding="16"
                         Background="Transparent" 
-                        BorderBrush="Gray"
+                        Foreground="White"
+                        BorderBrush="White"
                         Click="LoginButton_Click"/>
 
                 
                 <Button x:Name="RegisterButton" Content="Sign up"
                         Margin="0 16 0 0" Padding="16"
                         Background="Transparent" 
-                        Foreground="Gray"
-                        BorderBrush="Gray"
+                        Foreground="White"
+                        BorderBrush="White"
                         Click="RegisterButton_Click"/>
             </StackPanel>
         </StackPanel>

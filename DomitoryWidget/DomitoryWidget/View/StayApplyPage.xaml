@@ -1,0 +1,67 @@
+﻿<Page x:Class="DomitoryWidget.View.StayApplyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DomitoryWidget.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="560" d:DesignWidth="800"
+      Title="StayApplyPage">
+
+    <Grid>
+        <Border Background="#3593d3"/>
+
+        <Border Background="#2A2A2A" Margin="0 96">
+            <StackPanel Margin="32" VerticalAlignment="Center">
+                <Label Content="주말잔류 신청하기"
+                       Foreground="White" FontSize="18"
+                       HorizontalAlignment="Center"
+                       FontFamily="{StaticResource NanumSquare}"/>
+                
+                <StackPanel Margin="16 32" HorizontalAlignment="Center">
+                    <StackPanel.Resources>
+                        <Style TargetType="RadioButton">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="FontFamily" Value="{StaticResource NanumSquare}"/>
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <RadioButton Content="금요귀가 - 금요일에 귀가하여 일요일에 귀사합니다." Margin="0 0 0 24"/>
+                    <RadioButton Content="토요귀사 - 금요일에 귀가하여 토요일에 귀사힙니다." Margin="0 0 0 24"/>
+                    <RadioButton Content="토요귀가 - 토요일에 귀가하여 일요일에 귀사합니다." Margin="0 0 0 24"/>
+                    <RadioButton Content="잔류 - 귀가하지 않고 기숙사에 잔류합니다."/>
+                </StackPanel>
+
+                <Grid Margin="128 0">
+                    <Grid.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontFamily" Value="{StaticResource NanumSquare}"/>
+                        </Style>
+                    </Grid.Resources>
+                    
+                    <!-- Elements Between Margin 16 -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="16"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Submit Apply -->
+                    <Button x:Name="SubmitApplyButton" Grid.Column="2" 
+                            Content ="신청" Margin="0 0" Padding="8"
+                            Click="SubmitApplyButton_Click"/>
+
+                    <!-- Cance Apply -->
+                    <Button x:Name="CancelApplyButton" Grid.Column="0" 
+                            Content="뒤로" Margin="0 0" Padding="8"
+                            Click="CancelApplyButton_Click"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

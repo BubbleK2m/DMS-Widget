@@ -10,12 +10,12 @@
 
     <Page.Resources>
         <Style TargetType="Label">
-            <Setter Property="FontFamily" Value="/Font/#NanumSquare"/>
+            <Setter Property="FontFamily" Value="{StaticResource NanumSquare}"/>
         </Style>
 
         <Style TargetType="Button">
             <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="FontFamily" Value="/Font/#NanumSquare"/>
+            <Setter Property="FontFamily" Value="{StaticResource NanumSquare}"/>
         </Style>
     </Page.Resources>
     
@@ -35,6 +35,7 @@
                 <Label Grid.Column="1" Content="2018년 6월 12일 금요일" 
                        Margin="0 0 0 0"
                        Foreground="White" FontSize="15"
+                       FontFamily="{StaticResource NanumSquare}"
                        HorizontalAlignment="Center"/>
 
                 <Grid Height="360">
@@ -133,7 +134,7 @@
 
         <ScrollViewer Grid.Column="1"
                       HorizontalScrollBarVisibility="Hidden">
-            <Border Background="#222">
+            <Border Background="#2A2A2A">
                 <StackPanel Orientation="Vertical"
                             Margin="32 48 0 48">
 
@@ -187,19 +188,22 @@
                             BorderThickness="1">
 
                         <StackPanel>
-                            <Label Content="주말잔류 신청" Margin="16"
-                                   Foreground="White" FontSize="20"/>
+                            <Label Content="주말잔류 신청" 
+                                   Margin="16"
+                                   Foreground="White" 
+                                   FontSize="20"/>
 
                             <Label Content="토요귀가" Margin="28 0 28 16"
                                    HorizontalAlignment="Right"
                                    Foreground="White" FontSize="18"/>
 
-                            <Button Content="주말잔류 신청하기" 
+                            <Button x:Name="StayApplyButton" 
+                                    Content="주말잔류 신청하기" 
                                     Margin="24 0 24 16" Padding="16 12"
-                                    Background="Transparent"
-                                    BorderBrush="White"
-                                    BorderThickness="1"
-                                    Foreground="White" FontSize="13"/>
+                                    Background="Transparent" 
+                                    BorderBrush="White" BorderThickness="1"
+                                    Foreground="White" FontSize="13"
+                                    Click="StayApplyButton_Click"/>
                         </StackPanel>
                     </Border>
 
@@ -208,8 +212,10 @@
                             BorderThickness="1">
 
                         <StackPanel>
-                            <Label Content="주말외출 신청" Margin="16"
-                                   Foreground="White" FontSize="20"/>
+                            <Label Content="주말외출 신청" 
+                                   Margin="16"
+                                   Foreground="White" 
+                                   FontSize="20"/>
 
                             <StackPanel Orientation="Horizontal"
                                         Margin="28 0 28 16"
@@ -219,10 +225,6 @@
                                     <Label Content="토요일"
                                            HorizontalAlignment="Right"
                                            Foreground="White" FontSize="16"/>
-
-                                    <Label Content="신청" 
-                                           HorizontalAlignment="Right"
-                                           Foreground="White" FontSize="14"/>
                                 </StackPanel>
 
                                 <StackPanel>

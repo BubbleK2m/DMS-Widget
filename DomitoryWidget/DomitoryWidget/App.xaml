@@ -7,5 +7,6 @@
         <SolidColorBrush x:Key="DSMBlue" Color="#3593D3"/>
         <SolidColorBrush x:Key="DSMYellow" Color="#FFBC47"/>
         <SolidColorBrush x:Key="DSMRed" Color="#F66351"/>
+        <FontFamily x:Key="NanumSquare">/Font/#NanumSquare</FontFamily>
     </Application.Resources>
 </Application>

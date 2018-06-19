@@ -16,20 +16,24 @@ using System.Windows.Shapes;
 namespace DomitoryWidget.View
 {
     /// <summary>
-    /// MainPage.xaml에 대한 상호 작용 논리
+    /// StayApplyPage.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainPage : Page
+    public partial class StayApplyPage : Page
     {
         private MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
 
-        public MainPage()
+        public StayApplyPage()
         {
             InitializeComponent();
         }
-
-        private void StayApplyButton_Click(object sender, RoutedEventArgs e)
+        
+        private void CancelApplyButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.NavigatePage(new StayApplyPage());
+            mainWindow.NavigatePage(new MainPage());
+        }
+
+        private void SubmitApplyButton_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

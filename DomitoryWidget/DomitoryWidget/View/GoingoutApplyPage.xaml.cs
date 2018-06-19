@@ -16,20 +16,13 @@ using System.Windows.Shapes;
 namespace DomitoryWidget.View
 {
     /// <summary>
-    /// MainPage.xaml에 대한 상호 작용 논리
+    /// GoingoutApplyPage.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainPage : Page
+    public partial class GoingoutApplyPage : Page
     {
-        private MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-
-        public MainPage()
+        public GoingoutApplyPage()
         {
             InitializeComponent();
-        }
-
-        private void StayApplyButton_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.NavigatePage(new StayApplyPage());
         }
     }
 }
