@@ -9,7 +9,12 @@ namespace DomitoryWidget.ViewModel
     class MealListViewModel
     {
         private string name;
-        public string Name { get => name; set => name = value; }
+
+        public string Name
+        {
+            get => name;
+            set => name = value;
+        }
 
         internal MealListViewModel(string name)
         {

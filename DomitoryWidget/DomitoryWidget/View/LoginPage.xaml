@@ -66,10 +66,10 @@
                 </StackPanel.Resources>
 
                 <Label Content="ID" Padding="0" Margin="0 24 0 0"/>
-                <TextBox Padding="8 16" />
+                <TextBox x:Name="IDText" Padding="8 16" />
 
                 <Label Content="Password" Padding="0" Margin="0 24 0 0"/>
-                <PasswordBox Padding="8 16" />
+                <PasswordBox x:Name="PWText"  Padding="8 16" />
 
                 <Button x:Name="LoginButton" Content="Sign in"
                         Margin="0 32 0 0" Padding="16"

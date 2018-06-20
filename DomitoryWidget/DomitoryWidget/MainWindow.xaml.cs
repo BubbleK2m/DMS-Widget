@@ -21,6 +21,9 @@ namespace DomitoryWidget
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string AccesssToken;
+        public string RefreshToken;
+
         public MainWindow()
         {
             InitializeComponent();

@@ -1,4 +1,4 @@
-﻿using EasyHttp.Http;
+﻿using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DomitoryWidget.Model
 {
-    static class HTTP
+    internal static class RestSharp
     {
     }
 }

@@ -1,37 +1,42 @@
-﻿using EasyHttp.Http;
+﻿using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DomitoryWidget.Model
 {
-    static class DMS
+    internal static class DMS
     {
-        static class URL
+        private static class URL
         {
             public const string BASEPATH = "http://dsm2015.cafe24.com";
-            public const string AUTH = BASEPATH + "/auth";                
+            public const string AUTH = "/auth";
+            public const string MYPAGE = "/mypage";
         }
 
-        public static HttpResponse Auth(string id, string password)
+        internal static RestResponse Auth(string id, string password)
         {
-            var client = new HttpClient();
+            var client = new RestClient(URL.BASEPATH);
+            var request = new RestRequest(URL.AUTH, Method.POST);
 
-            var body = new Dictionary<string, object>
-            {
-                { "id", id },
-                { "password", password },
-            };
+            request.AddParameter("id", id, ParameterType.GetOrPost);
+            request.AddParameter("pw", password, ParameterType.GetOrPost);
 
-            var response = client.Post
-            (
-                uri: URL.AUTH, data: body, 
-                contentType: HttpContentTypes.ApplicationJson
-            );
+            var response = client.Execute(request);
+            return response as RestResponse;
+        }
 
-            return response;
+        internal static RestResponse MyPage(string accessToken)
+        {
+            var client = new RestClient(URL.BASEPATH);
+            var request = new RestRequest(URL.MYPAGE, Method.GET);
+            request.AddHeader("Authorization", $"JWT {accessToken}");
+
+            var response = client.Execute(request);
+            return response as RestResponse;
         }
     }
 }

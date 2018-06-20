@@ -159,7 +159,8 @@
                                            HorizontalAlignment="Right"
                                            Foreground="White" FontSize="16"/>
 
-                                    <Label Content="3층 독서실"
+                                    <Label x:Name="ElevenExtensionLabel"  
+                                           Content="3층 독서실"
                                            HorizontalAlignment="Right"
                                            Foreground="White" FontSize="14"/>
                                 </StackPanel>
@@ -169,7 +170,8 @@
                                            HorizontalAlignment="Right"
                                            Foreground="White" FontSize="16"/>
 
-                                    <Label Content="3층 독서실"
+                                    <Label x:Name="TwelveExtensionLabel" 
+                                           Content="3층 독서실"
                                            HorizontalAlignment="Right"
                                            Foreground="White" FontSize="14"/>
                                 </StackPanel>
@@ -194,7 +196,8 @@
                                    Foreground="White" 
                                    FontSize="20"/>
 
-                            <Label Content="토요귀가" Margin="28 0 28 16"
+                            <Label x:Name="StayWeekendLabel" 
+                                   Content="토요귀가" Margin="28 0 28 16" 
                                    HorizontalAlignment="Right"
                                    Foreground="White" FontSize="18"/>
 
@@ -227,7 +230,7 @@
                                            HorizontalAlignment="Right"
                                            Foreground="White" FontSize="16"/>
 
-                                    <Label Content="미신청"
+                                    <Label x:Name="SaturdayGoingoutLabel" Content="신청"
                                            HorizontalAlignment="Right"
                                            Foreground="White" FontSize="14"/>
                                 </StackPanel>
@@ -237,7 +240,7 @@
                                            HorizontalAlignment="Right"
                                            Foreground="White" FontSize="16"/>
 
-                                    <Label Content="미신청"
+                                    <Label x:Name="SundayGoingoutLabel" Content="미신청"
                                            HorizontalAlignment="Right"
                                            Foreground="White" FontSize="14"/>
                                 </StackPanel>

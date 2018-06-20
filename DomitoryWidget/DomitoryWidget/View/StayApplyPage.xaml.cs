@@ -26,7 +26,7 @@ namespace DomitoryWidget.View
         {
             InitializeComponent();
         }
-        
+                
         private void CancelApplyButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.NavigatePage(new MainPage());
@@ -34,6 +34,21 @@ namespace DomitoryWidget.View
 
         private void SubmitApplyButton_Click(object sender, RoutedEventArgs e)
         {
+            SubmitStayApply();
+        }
+
+        private void SubmitStayApply()
+        {
+            GetStayApplyFromRadios();
+        }
+
+        private int GetStayApplyFromRadios()
+        {
+            if ((bool)FridayHomecomingRadio.IsChecked) return 1;
+            else if ((bool)SaturdayHomecomingRadio.IsChecked) return 2;
+            else if ((bool)SaturdayComebackRadio.IsChecked) return 3;
+            else if ((bool)StayDormitoryRadio.IsChecked) return 4;
+            else return 0;
         }
     }
 }
