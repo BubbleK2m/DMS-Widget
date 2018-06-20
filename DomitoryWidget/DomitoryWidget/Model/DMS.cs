@@ -15,6 +15,7 @@ namespace DomitoryWidget.Model
             public const string BASEPATH = "http://dsm2015.cafe24.com";
             public const string AUTH = "/auth";
             public const string MYPAGE = "/mypage";
+            public const string STAY = "/stay";
         }
 
         internal static RestResponse Auth(string id, string password)
@@ -33,6 +34,28 @@ namespace DomitoryWidget.Model
         {
             var client = new RestClient(URL.BASEPATH);
             var request = new RestRequest(URL.MYPAGE, Method.GET);
+            request.AddHeader("Authorization", $"JWT {accessToken}");
+
+            var response = client.Execute(request);
+            return response as RestResponse;
+        }
+
+        internal static RestResponse GetStayApply(string accessToken)
+        {
+            var client = new RestClient(URL.BASEPATH);
+            var request = new RestRequest(URL.STAY, Method.GET);
+            request.AddHeader("Authorization", $"JWT {accessToken}");
+
+            var response = client.Execute(request);
+            return response as RestResponse;
+        }
+
+        internal static RestResponse SetStayApply(int stay, string accessToken)
+        {
+            var client = new RestClient(URL.BASEPATH);
+            var request = new RestRequest(URL.STAY, Method.POST);
+
+            request.AddParameter("value", stay, ParameterType.GetOrPost);
             request.AddHeader("Authorization", $"JWT {accessToken}");
 
             var response = client.Execute(request);

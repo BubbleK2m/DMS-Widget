@@ -62,7 +62,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\DMS.cs" />
-    <Compile Include="Model\RestSharp.cs" />
     <Compile Include="ViewModel\MealListViewModel.cs" />
     <Compile Include="View\GoingoutApplyPage.xaml.cs">
       <DependentUpon>GoingoutApplyPage.xaml</DependentUpon>

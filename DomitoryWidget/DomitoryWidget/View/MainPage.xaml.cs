@@ -71,7 +71,7 @@ namespace DomitoryWidget.View
                 case 6: return "4층 독서실";
                 case 7: return "5층 열린교실";
                 case 8: return "2층 여자 자습실";
-                default: return "없음";
+                default: return "미신청";
             }
         }
 

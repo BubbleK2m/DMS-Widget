@@ -1,6 +1,10 @@
-﻿using System;
+﻿using DomitoryWidget.Model;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,7 +30,36 @@ namespace DomitoryWidget.View
         {
             InitializeComponent();
         }
-                
+        
+        private void LoadStayApply()
+        {
+            var response = DMS.GetStayApply(mainWindow.AccesssToken);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                MessageBox.Show("잔류신청 조회 실패");
+                mainWindow.NavigatePage(new LoginPage());
+
+                return;
+            }
+
+            SetApplyRadiosFromResponse(response);
+        }
+        
+        private void SetApplyRadiosFromResponse(RestResponse response)
+        {
+            var content = JObject.Parse(response.Content);
+            var stay = content.Value<int?>("value") ?? 0;
+
+            switch (stay)
+            {
+                case 1: FridayHomecomingRadio.IsChecked = true; break;
+                case 2: SaturdayHomecomingRadio.IsChecked = true; break;
+                case 3: SaturdayComebackRadio.IsChecked = true; break;
+                case 4: StayDormitoryRadio.IsChecked = true; break;
+            }
+        }
+
         private void CancelApplyButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.NavigatePage(new MainPage());
@@ -39,7 +72,20 @@ namespace DomitoryWidget.View
 
         private void SubmitStayApply()
         {
-            GetStayApplyFromRadios();
+            var stay = GetStayApplyFromRadios();
+            var response = DMS.SetStayApply(stay, mainWindow.AccesssToken);
+
+            if (response.StatusCode != HttpStatusCode.Created)
+            {
+                MessageBox.Show($"잔류신청 실패");
+            }
+
+            else
+            {
+                MessageBox.Show($"잔류신청 성공");
+            }
+            
+            mainWindow.NavigatePage(new MainPage());
         }
 
         private int GetStayApplyFromRadios()
