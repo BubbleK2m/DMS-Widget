@@ -25,8 +25,7 @@
                        FontFamily="{StaticResource NanumSquare}"
                        HorizontalContentAlignment="Center"/>
 
-                <StackPanel Margin="16 24" HorizontalAlignment="Center"
-                            Orientation="Horizontal">
+                <StackPanel Margin="16 36" HorizontalAlignment="Center">
                     <StackPanel.Resources>
                         <Style TargetType="CheckBox">
                             <Setter Property="Foreground" Value="White"/>
@@ -34,10 +33,11 @@
                             <Setter Property="FontSize" Value="16"/>
                         </Style>
                     </StackPanel.Resources>
-                    
-                    <CheckBox Grid.Column="0" Margin="0 0 16 0" />
 
-                    <CheckBox />
+                    <CheckBox x:Name="SaturdayGoingoutCheck"
+                              Content="토요일 외출" Margin="0 0 0 16" />
+                    
+                    <CheckBox x:Name="SundayGoingoutCheck" Content="일요일 외출" />
                 </StackPanel>
 
                 <Grid Width="300">
@@ -55,8 +55,17 @@
                         </Style>
                     </Grid.Resources>
                     
-                    <Button Grid.Column="0" Content="뒤로" Padding="8"/>
-                    <Button Grid.Column="2" Content="신청" Padding="8"/>
+                    <Button x:Name="CancelApplyButton"
+                            Grid.Column="0" 
+                            Content="뒤로" 
+                            Padding="8"
+                            Click="CancelApplyButton_Click"/>
+                    
+                    <Button x:Name="SubmitApplyButton"
+                            Grid.Column="2" 
+                            Content="신청" 
+                            Padding="8"
+                            Click="SubmitApplyButton_Click"/>
                 </Grid>
             </StackPanel>
         </Border>

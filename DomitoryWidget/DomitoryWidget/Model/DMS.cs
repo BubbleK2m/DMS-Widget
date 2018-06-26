@@ -14,8 +14,10 @@ namespace DomitoryWidget.Model
         {
             public const string BASEPATH = "http://dsm2015.cafe24.com";
             public const string AUTH = "/auth";
+            public const string MEAL = "/meal";
             public const string MYPAGE = "/mypage";
             public const string STAY = "/stay";
+            public const string GOINGOUT = "/goingout";
         }
 
         internal static RestResponse Auth(string id, string password)
@@ -25,6 +27,15 @@ namespace DomitoryWidget.Model
 
             request.AddParameter("id", id, ParameterType.GetOrPost);
             request.AddParameter("pw", password, ParameterType.GetOrPost);
+
+            var response = client.Execute(request);
+            return response as RestResponse;
+        }
+
+        internal static RestResponse Meal(int year, int month, int day)
+        {
+            var client = new RestClient(URL.BASEPATH);
+            var request = new RestRequest(URL.MEAL + $"/{year}-{month:00}-{day:00}", Method.GET);
 
             var response = client.Execute(request);
             return response as RestResponse;
@@ -57,6 +68,29 @@ namespace DomitoryWidget.Model
 
             request.AddParameter("value", stay, ParameterType.GetOrPost);
             request.AddHeader("Authorization", $"JWT {accessToken}");
+
+            var response = client.Execute(request);
+            return response as RestResponse;
+        }
+
+        internal static RestResponse GetGoingoutApply(string accessToken)
+        {
+            var client = new RestClient(URL.BASEPATH);
+            var request = new RestRequest(URL.GOINGOUT, Method.GET);
+            request.AddHeader("Authorization", $"JWT {accessToken}");
+
+            var response = client.Execute(request);
+            return response as RestResponse;
+        }
+
+        internal static RestResponse SetGoingoutApply(bool sat, bool sun, string accessToken)
+        {
+            var client = new RestClient(URL.BASEPATH);
+            var request = new RestRequest(URL.GOINGOUT, Method.POST);
+
+            request.AddHeader("Authorization", $"JWT {accessToken}");
+            request.AddParameter("sat", sat, ParameterType.GetOrPost);
+            request.AddParameter("sun", sun, ParameterType.GetOrPost);
 
             var response = client.Execute(request);
             return response as RestResponse;

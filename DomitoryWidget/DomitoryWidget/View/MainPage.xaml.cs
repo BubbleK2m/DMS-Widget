@@ -30,6 +30,7 @@ namespace DomitoryWidget.View
         {
             InitializeComponent();
             LoadMyPage();
+            LoadTodayMeals();
         }
 
         private void LoadMyPage()
@@ -46,6 +47,20 @@ namespace DomitoryWidget.View
 
             SetMyPageFromReponse(response);
         }
+        
+        private void LoadTodayMeals()
+        {
+            var now = DateTime.Now;
+            var response = DMS.Meal(now.Year, now.Month, now.Day);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                MessageBox.Show("식단 로딩 실패");
+                return;
+            }
+
+            SetTodayMealsFromResponse(response);
+        }
 
         private void SetMyPageFromReponse(RestResponse response)
         {
@@ -57,6 +72,15 @@ namespace DomitoryWidget.View
 
             SaturdayGoingoutLabel.Content = ParseGoingout(content["goingout"].Value<bool>("sat"));
             SundayGoingoutLabel.Content = ParseGoingout(content["goingout"].Value<bool>("sun"));
+        }
+
+        private void SetTodayMealsFromResponse(RestResponse response)
+        {
+            var content = JObject.Parse(response.Content);
+
+            BreakfastText.Text = ParseMeal(content.Value<JArray>("breakfast"));
+            LunchText.Text = ParseMeal(content.Value<JArray>("lunch"));
+            DinnerText.Text = ParseMeal(content.Value<JArray>("dinner"));
         }
 
         private static string ParseExtension(int extension)
@@ -92,9 +116,19 @@ namespace DomitoryWidget.View
             return goingout ? "신청" : "미신청";
         }
 
+        private static string ParseMeal(JArray meal)
+        {
+            return meal != null ? string.Join(",", meal) : "급식이 없습니다.";
+        }
+
         private void StayApplyButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.NavigatePage(new StayApplyPage());
+        }
+
+        private void GoingoutApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.NavigatePage(new GoingoutApplyPage());
         }
     }
 }

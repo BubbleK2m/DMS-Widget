@@ -65,14 +65,13 @@
                         <Label Content="Breakfast" Padding="16 8"
                                FontSize="16" Foreground="White"/>
 
-                        <TextBlock Padding="16 4"
+                        <TextBlock x:Name="BreakfastText"
+                                   Text="급식이 없습니다."
+                                   Padding="16 4"
                                    Foreground="White"
                                    FontSize="14"
                                    FontFamily="/Font/#NanumSquare"
-                                   TextWrapping="WrapWithOverflow">
-                        
-                            급식이 없습니다.
-                        </TextBlock>
+                                   TextWrapping="WrapWithOverflow" />
                     </StackPanel>
 
                     <Border Grid.Row="1" Grid.Column="0"
@@ -88,21 +87,15 @@
                                 VerticalAlignment="Center">
                         <Label Content="Lunch" Padding="16 8"
                                FontSize="16" Foreground="White"/>
-                        
-                        <TextBlock VerticalAlignment="Center"
-                               Padding="16 8"
-                               Foreground="White"
-                               FontSize="14"
-                               FontFamily="/Font/#NanumSquare"
-                               TextWrapping="WrapWithOverflow">
-                        
-                            소고기콩나물밥,
-                            양념장,
-                            건새우달걀탕,
-                            치즈바게트구이,
-                            복숭아아이스티,
-                            열무김치
-                        </TextBlock>
+
+                        <TextBlock x:Name="LunchText"
+                                   Text="급식이 없습니다."
+                                   VerticalAlignment="Center"
+                                   Padding="16 8"
+                                   Foreground="White"
+                                   FontSize="14"
+                                   FontFamily="/Font/#NanumSquare"
+                                   TextWrapping="WrapWithOverflow" />
                     </StackPanel>
 
                     <Border Grid.Row="2" Grid.Column="0"
@@ -119,15 +112,14 @@
                         <Label Content="Dinner" Padding="16 8"
                                FontSize="16" Foreground="White"/>
 
-                        <TextBlock VerticalAlignment="Center"
+                        <TextBlock x:Name="DinnerText"
+                                   Text="급식이 없습니다."
+                                   VerticalAlignment="Center"
                                    Padding="16 8"
                                    Foreground="White"
                                    FontSize="14"
                                    FontFamily="/Font/#NanumSquare"
-                                   TextWrapping="WrapWithOverflow">
-                            
-                            급식이 없습니다.
-                        </TextBlock>
+                                   TextWrapping="WrapWithOverflow" />
                     </StackPanel>
                 </Grid>
             </StackPanel>
@@ -246,12 +238,14 @@
                                 </StackPanel>
                             </StackPanel>
 
-                            <Button Content="주말외출 신청하기" 
+                            <Button x:Name="GoingoutApplyButton" 
+                                    Content="주말외출 신청하기" 
                                     Margin="24 0 24 16" Padding="16 12"
                                     Background="Transparent"
                                     BorderBrush="White"
                                     BorderThickness="1"
-                                    Foreground="White" FontSize="13"/>
+                                    Foreground="White" FontSize="13"
+                                    Click="GoingoutApplyButton_Click"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>

@@ -29,6 +29,7 @@ namespace DomitoryWidget.View
         public StayApplyPage()
         {
             InitializeComponent();
+            LoadStayApply();
         }
         
         private void LoadStayApply()
@@ -62,7 +63,7 @@ namespace DomitoryWidget.View
 
         private void CancelApplyButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.NavigatePage(new MainPage());
+            mainWindow.MoveBackPage();
         }
 
         private void SubmitApplyButton_Click(object sender, RoutedEventArgs e)

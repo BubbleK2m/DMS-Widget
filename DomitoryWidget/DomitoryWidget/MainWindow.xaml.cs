@@ -44,6 +44,11 @@ namespace DomitoryWidget
             MainFrame.NavigationService.Navigate(page);
         }
 
+        public void MoveBackPage()
+        {
+            MainFrame.NavigationService.GoBack();
+        }
+
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
             MainFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
