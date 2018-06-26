@@ -83,14 +83,14 @@ namespace DomitoryWidget.Model
             return response as RestResponse;
         }
 
-        internal static RestResponse SetGoingoutApply(bool sat, bool sun, string accessToken)
+        internal static RestResponse SetGoingoutApply(bool saturdayGoingout, bool sundayGoingout, string accessToken)
         {
             var client = new RestClient(URL.BASEPATH);
             var request = new RestRequest(URL.GOINGOUT, Method.POST);
 
             request.AddHeader("Authorization", $"JWT {accessToken}");
-            request.AddParameter("sat", sat, ParameterType.GetOrPost);
-            request.AddParameter("sun", sun, ParameterType.GetOrPost);
+            request.AddParameter("sat", saturdayGoingout, ParameterType.GetOrPost);
+            request.AddParameter("sun", sundayGoingout, ParameterType.GetOrPost);
 
             var response = client.Execute(request);
             return response as RestResponse;

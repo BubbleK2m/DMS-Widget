@@ -40,7 +40,6 @@ namespace DomitoryWidget.View
         {
             var id = IDText.Text;
             var pw = PWText.Password;
-
             var response = DMS.Auth(id, pw);
 
             if (response.StatusCode != HttpStatusCode.OK)
