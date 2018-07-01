@@ -66,8 +66,8 @@ namespace DomitoryWidget.View
         {
             var content = JObject.Parse(response.Content);
 
-            ElevenExtensionLabel.Content = ParseStayWeekend(content.Value<int?>("extension_11") ?? 0);
-            TwelveExtensionLabel.Content = ParseStayWeekend(content.Value<int?>("extension_12") ?? 0);
+            ElevenExtensionLabel.Content = ParseExtension(content.Value<JObject>("extension_11"));
+            TwelveExtensionLabel.Content = ParseExtension(content.Value<JObject>("extension_12"));
             StayWeekendLabel.Content = ParseStayWeekend(content.Value<int?>("stay_value") ?? 0);
 
             SaturdayGoingoutLabel.Content = ParseGoingout(content["goingout"].Value<bool>("sat"));
@@ -81,6 +81,12 @@ namespace DomitoryWidget.View
             BreakfastText.Text = ParseMeal(content.Value<JArray>("breakfast"));
             LunchText.Text = ParseMeal(content.Value<JArray>("lunch"));
             DinnerText.Text = ParseMeal(content.Value<JArray>("dinner"));
+        }
+
+        private static string ParseExtension(JObject extension)
+        {
+            if (extension == null) return "미신청";
+            else return ParseExtension(extension.Value<int>("class_num"));
         }
 
         private static string ParseExtension(int extension)
