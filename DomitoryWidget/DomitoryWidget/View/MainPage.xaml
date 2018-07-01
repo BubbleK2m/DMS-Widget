@@ -33,7 +33,8 @@
                     Margin="0 48">
 
             <StackPanel Margin="32 24">
-                <Label Grid.Column="1" Content="2018년 6월 12일 금요일" 
+                <Label x:Name="TodayLabel" Grid.Column="1" 
+                       Content="2018년 6월 12일 금요일" 
                        Margin="0 0 0 0"
                        Foreground="White" FontSize="15"
                        FontFamily="{StaticResource NanumSquare}"

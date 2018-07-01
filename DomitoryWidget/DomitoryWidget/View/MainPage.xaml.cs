@@ -53,6 +53,11 @@ namespace DomitoryWidget.View
             var now = DateTime.Now;
             var response = DMS.Meal(now.Year, now.Month, now.Day);
 
+            TodayLabel.Content = $"{now.Year}년 " +
+                                 $"{now.Month:00}월 " +
+                                 $"{now.Day:00}일 " +
+                                 ParseDayOfWeek(now.DayOfWeek);
+
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 MessageBox.Show("식단 로딩 실패");
@@ -81,6 +86,21 @@ namespace DomitoryWidget.View
             BreakfastText.Text = ParseMeal(content.Value<JArray>("breakfast"));
             LunchText.Text = ParseMeal(content.Value<JArray>("lunch"));
             DinnerText.Text = ParseMeal(content.Value<JArray>("dinner"));
+        }
+
+        private static string ParseDayOfWeek(DayOfWeek dayOfWeek)
+        {
+            switch (dayOfWeek)
+            {
+                case DayOfWeek.Sunday: return "일요일";
+                case DayOfWeek.Monday: return "월요일";
+                case DayOfWeek.Tuesday: return "화요일";
+                case DayOfWeek.Wednesday: return "수요일";
+                case DayOfWeek.Thursday: return "목요일";
+                case DayOfWeek.Friday: return "금요일";
+                case DayOfWeek.Saturday: return "토요일";
+                default: return null;
+            }
         }
 
         private static string ParseExtension(JObject extension)
